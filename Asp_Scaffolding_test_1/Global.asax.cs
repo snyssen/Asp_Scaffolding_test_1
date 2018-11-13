@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using Asp_Scaffolding_test_1.Models;
 
 namespace Asp_Scaffolding_test_1
 {
@@ -12,6 +14,7 @@ namespace Asp_Scaffolding_test_1
 	{
 		protected void Application_Start()
 		{
+			Database.SetInitializer<StoreContext>(new DropCreateDatabaseIfModelChanges<StoreContext>());
 			AreaRegistration.RegisterAllAreas();
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
